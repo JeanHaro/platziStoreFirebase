@@ -1,3 +1,7 @@
+<!-- ngModel es una directiva que trabaja en los formulario por eso debemos agregar un modulo en el 
+  archivo app.module.ts que lo obtendremos del paquete de angular/form -->
+<!-- Cualquier edición que haga en el input, se verá reflejado en el {{ title }}-->
+<input type="text" [(ngModel)]="title">
 <!-- String Interpolation - acá podemos adjuntar variables e imprimirlas en nuestro HTML -->
 <!-- Con esto puedes ejecutar o concatenar instrucciones de JavaScript -->
 {{ 1 + 2 }}
