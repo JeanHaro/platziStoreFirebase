@@ -15,6 +15,17 @@
   este es un div
 </div>
 
+<!-- ngSwitch -->
+<!-- Si el title es de valor jean, aparecerá el primer parrafo, si es julian, el segundo parrafo -->
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="'jean'">Este es Jean</p>
+  <p *ngSwitchCase="'julian'">Este es Julian</p>
+  <p *ngSwitchCase="'camilo'">Este es Camilo</p>
+  <!-- Si no hay relación con los otros case, aparecerá este -->
+  <p *ngSwitchDefault>No hay match</p>
+</div>
+
+
 <!-- Generar una acción basada en un () esa acción va a ejecutar un método, ese método va a estar sentenciado en
 nuestro componente -->
 <button (click)="addItem()">Add item</button>
