@@ -14,3 +14,23 @@
 <div *ngIf="title === 'Jean'">
   este es un div
 </div>
+
+<!-- Generar una acción basada en un () esa acción va a ejecutar un método, ese método va a estar sentenciado en
+nuestro componente -->
+<button (click)="addItem()">Add item</button>
+
+<ul>
+  <!-- Cuando se borren todos los elementos sale este contenido -->
+  <li *ngIf="items.length === 0">La lista está vacía</li>
+  <!-- Elemento que se va a renderizar varias veces es el li -->
+  <!-- name es la variable iteradora, puede ser una variable con cualquier nombre -->
+  <!-- items es el nombre de nuestra variable de tipo Array -->
+  <!-- Para saber la posición dentro de la renderización es con index as i, sabremos la iteración que esta 
+  teniendoi -->
+  <li *ngFor="let name of items; index as i">
+    <!-- La variable iteradora usando String Interpolation -->
+    {{ name }} {{ i }}
+    <!-- La ubicación del array es el i -->
+    <button (click)="deleteItem(i)">delete</button>
+  </li>
+</ul>
