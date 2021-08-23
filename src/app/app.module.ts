@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 
 // Componentes
 import { ProductComponent } from './components/product.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
     // Se coloca acá los componentes
     AppComponent,
-    ProductComponent
+    ProductComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
