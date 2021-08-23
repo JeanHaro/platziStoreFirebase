@@ -2,7 +2,7 @@
 /* Un decordaor es la manera en que angular pueda saber esta clase que tipo de error va a cumplir, si va ser
 un componente si va ser un servicio, si va ser un pype, en este caso como vamos hacer un componente vamos
 a usar el decorador component */
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 // Modelo
 import { Product } from '../product.model';
@@ -19,11 +19,15 @@ import { Product } from '../product.model';
 })
 export class ProductComponent {
     // Variable tipo Product (Interfaz)
-    product: Product = {
-        id: '1',
-        image: 'assets/images/camiseta.png',
-        title: 'Camiseta',
-        price: 80000,
-        description: 'bla bla bla bla',
+    // Automáticamente el componente que tenemos va a recibir ahora una propiedad desde otro componente
+    @Input() product!: Product;
+    @Output() productClicked: EventEmitter<any> = new EventEmitter();
+
+    addCart() {
+        console.log('añadir al carrito');
+        // emit() - Colocar que cosa queremos emitir depende del tipo que colocamos en el productClicked
+        // Como es any es cualquier valor, si es number pide numero, etc
+        // Emitirá el id del producto
+        this.productClicked.emit(this.product.id);
     }
 }

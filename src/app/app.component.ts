@@ -80,4 +80,9 @@ export class AppComponent {
     // segundo elemento se indica cuantos elementos se quieren borrar
     this.items.splice(index, 1);
   }
+
+  clickProduct(id: number) {
+    console.log('product');
+    console.log(id);
+  }
 }
