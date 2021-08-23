@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 // Interface
 import { Product } from './product.model';
- 
+
 @Component({
   selector: 'app-root',
   // la maquetación

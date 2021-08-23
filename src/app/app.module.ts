@@ -6,9 +6,14 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// Componentes
+import { ProductComponent } from './components/product.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    // Se coloca acá los componentes
+    AppComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
