@@ -1,0 +1,12 @@
+// host - hará referencia al div (app-product) que cubre a los elementos del HTML
+:host {
+    margin: 2px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: block;
+}
+
+img {
+    // Los estilos que están acá solo van a tener dominio en este componente Product
+    max-width: 100%;
+}

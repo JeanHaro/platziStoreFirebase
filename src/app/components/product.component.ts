@@ -28,6 +28,8 @@ import { Product } from '../product.model';
     selector: 'app-product',
     // A que archivo HTML vamos a llamar o estar enlazado a este componente
     templateUrl: './product.component.html',
+    // Estilos
+    styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit, DoCheck, OnDestroy {
     // Variable tipo Product (Interfaz)
