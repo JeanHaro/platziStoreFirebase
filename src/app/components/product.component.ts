@@ -37,6 +37,9 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
     @Input() product!: Product;
     @Output() productClicked: EventEmitter<any> = new EventEmitter();
 
+    // Fecha actual
+    today = new Date();
+
     /* Acá es donde se construye nuestro elemento o nuestro productComponent y Angular hace referencia a
     el y lo pone en interfaz */
     constructor() {

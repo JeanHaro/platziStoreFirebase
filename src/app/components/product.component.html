@@ -1,6 +1,12 @@
-<h3>{{ product.title }}</h3>
+<!-- uppercase - pondrá el titulo en mayúscula -->
+<h3>{{ product.title | uppercase }}</h3>
 <img [src]="product.image" alt="" />
 <div>
-    <strong>S/ {{ product.price }}</strong>
+    <!-- currency - automaticamente le va a colocar un signo pesos con sus decimales -->
+    <strong>{{ product.price | currency }}</strong>
+    <!-- slice - es para cortar texto, cortará desde el 0 hasta el 10 caracteres -->
+    <p>{{ product.description | slice:0:10 }}</p>
+    <!-- date - nos aplica una fecha -->
+    <p>{{ today | date:'HH:mm' }}</p>
     <button (click)="addCart()">Agregar al carrito</button>
 </div>
