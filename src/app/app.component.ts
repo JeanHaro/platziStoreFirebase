@@ -20,6 +20,8 @@ export class AppComponent {
   // Array
   items = ['Jean', 'Julian', 'Perez'];
 
+  power = 10;
+
   // Productos
   products: Product[] = [{
       id: '1',

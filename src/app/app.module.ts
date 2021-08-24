@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 // Componentes
 import { ProductComponent } from './components/product.component';
 import { CartComponent } from './cart/cart.component';
+import { ExponentialPipe } from './exponential.pipe';
 
 @NgModule({
   declarations: [
     // Se coloca acá los componentes
     AppComponent,
     ProductComponent,
-    CartComponent
+    CartComponent,
+    ExponentialPipe
   ],
   imports: [
     BrowserModule,

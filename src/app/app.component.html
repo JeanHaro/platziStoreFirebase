@@ -8,6 +8,9 @@
 {{ 'Hola mundo' }}
 {{ title }}
 
+<input type="text" [(ngModel)]="power">
+{{ power | exponential }}
+
 <!-- ngIf - condicionales -->
 <!-- Si la condición (1 === 1) es true, mostrará el elemento, si no no lo va a mostrar -->
 <!-- Si la variable title es Jean se va a mostrar el contenido del div -->
