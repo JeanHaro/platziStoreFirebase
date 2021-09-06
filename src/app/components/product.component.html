@@ -8,5 +8,7 @@
     <p>{{ product.description | slice:0:10 }}</p>
     <!-- date - nos aplica una fecha -->
     <p>{{ today | date:'HH:mm' }}</p>
-    <button (click)="addCart()">Agregar al carrito</button>
+    <button (click)="addCart()">Agregar al carrito</button>}
+    <!-- La primera parte será products, y la segunda es para concatenar esas dos para concatenar product.id -->
+    <a [routerLink]="['/products', product.id]">Ver detalle</a>
 </div>
