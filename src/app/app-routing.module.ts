@@ -9,35 +9,47 @@ import { DemoComponent } from './demo/demo.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 
+// Layout
+import { LayoutComponent } from './layout/layout.component';
+
 // Creando rutas en el Array vacío []
 const routes: Routes = [
   {
     path: '',
-    // Redirección
-    redirectTo: '/home',
-    // Cuando tengamos la url en seco, sin ningún path
-    pathMatch: 'full'
-  },
-  // Una ruta es un objeto
-  { 
-    // La página de la ruta
-    path: 'home',
-    // Enlazar componentes 
-    /* Es una manera, también podríamos empezar a crear rutas por cada uno de los componentes de nuestra 
-    página */
-    component: HomeComponent
-  },
-  {
-    path: 'products',
-    component: ProductsComponent
-  },
-  {
-    path: 'products/:id',
-    component: ProductDetailComponent
-  },
-  {
-    path: 'contact',
-    component: ContactComponent
+    // Que este componente tenga un layout
+    component: LayoutComponent,
+    // Hijos del Layout
+    children: [
+      {
+        // Cuando no haya path, redireccione al home
+        path: '',
+        // Redirección
+        redirectTo: '/home',
+        // Cuando tengamos la url en seco, sin ningún path
+        pathMatch: 'full'
+      },
+      // Una ruta es un objeto
+      { 
+        // La página de la ruta
+        path: 'home',
+        // Enlazar componentes 
+        /* Es una manera, también podríamos empezar a crear rutas por cada uno de los componentes de nuestra 
+        página */
+        component: HomeComponent
+      },
+      {
+        path: 'products',
+        component: ProductsComponent
+      },
+      {
+        path: 'products/:id',
+        component: ProductDetailComponent
+      },
+      {
+        path: 'contact',
+        component: ContactComponent
+      },
+    ]
   },
   {
     path: 'demo',
