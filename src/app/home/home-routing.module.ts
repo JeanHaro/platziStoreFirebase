@@ -1,7 +1,17 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-const routes: Routes = [];
+// Componentes
+import { HomeComponent } from './components/home/home.component';
+
+const routes: Routes = [
+    // Ruta inicial
+    // Es el elemento inicial con el que va a iniciar el modulo 
+    {
+        path: '',
+        component: HomeComponent
+    }
+];
 
 @NgModule({
     // Tiene metadata que son las rutas
