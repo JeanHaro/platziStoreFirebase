@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 // Servicios
-import { ProductsService } from './../products.service';
+import { ProductsService } from './../core/services/products/products.service';
 
 // Interfaces
 import { Product } from '../product.model';
