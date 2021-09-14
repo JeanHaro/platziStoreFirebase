@@ -11,6 +11,9 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 // Layout
 import { LayoutComponent } from './layout/layout.component';
 
+// Guardian
+import { AdminGuard } from './admin.guard';
+
 // Creando rutas en el Array vacío []
 const routes: Routes = [
   {
@@ -45,6 +48,7 @@ const routes: Routes = [
       },
       {
         path: 'contact',
+        canActivate: [AdminGuard],
         component: ContactComponent
       },
     ]
