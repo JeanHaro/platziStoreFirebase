@@ -24,11 +24,6 @@ h3 {
     font-family: sans-serif;
 }
 
-img {
-    // Los estilos que están acá solo van a tener dominio en este componente Product
-    max-width: 100%;
-}
-
 strong {
     width: 100%;
     display: block;
@@ -38,4 +33,19 @@ strong {
     padding: 15px 0;
     font-size: 20px;
     border: none;
+}
+
+.crop-image {
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 100%;
+    }
 }

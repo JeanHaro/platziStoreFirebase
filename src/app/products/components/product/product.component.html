@@ -1,14 +1,31 @@
-<!-- uppercase - pondrá el titulo en mayúscula -->
-<h3 appHighlight>{{ product.title | uppercase }}</h3>
+<mat-card>
+    <mat-card-header>
+        <!-- uppercase - pondrá el titulo en mayúscula -->
+        <mat-card-title>{{ product.title | uppercase }}</mat-card-title>
+        <!-- currency - automaticamente le va a colocar un signo pesos con sus decimales -->
+        <mat-card-subtitle>{{ product.price | currency }}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="crop-image">
+        <img [src]="product.image" alt="" />
+    </div>
+    <mat-card-content>
+        <!-- slice - es para cortar texto, cortará desde el 0 hasta el 10 caracteres -->
+        <p>{{ product.description | slice:0:10 }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <!-- La primera parte será products, y la segunda es para concatenar esas dos para concatenar product.id -->
+        <a mat-raised-button [routerLink]="['/products', product.id]">Ver detalle</a>
+        <button (click)="addCart()" mat-raised-button color="primary">Agregar al carrito</button>
+    </mat-card-actions>
+</mat-card>
+
+<!-- <h3 appHighlight>{{ product.title | uppercase }}</h3>
 <img [src]="product.image" alt="" />
 <div>
-    <!-- currency - automaticamente le va a colocar un signo pesos con sus decimales -->
     <strong>{{ product.price | currency }}</strong>
-    <!-- slice - es para cortar texto, cortará desde el 0 hasta el 10 caracteres -->
-    <p>{{ product.description | slice:0:10 }}</p>
+    <p>{{ product.description | slice:0:10 }}</p> -->
     <!-- date - nos aplica una fecha -->
-    <p>{{ today | date:'HH:mm' }}</p>
+    <!-- <p>{{ today | date:'HH:mm' }}</p>
     <button (click)="addCart()" mat-raised-button color="primary">Agregar al carrito</button>
-    <!-- La primera parte será products, y la segunda es para concatenar esas dos para concatenar product.id -->
     <a [routerLink]="['/products', product.id]">Ver detalle</a>
-</div>
+</div> -->
