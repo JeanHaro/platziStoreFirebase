@@ -12,6 +12,8 @@ import { HighlightDirective } from './directives/highlight/highlight.directive';
 // Pipes
 import { ExponentialPipe } from './pipes/exponential/exponential.pipe';
 
+import { MaterialModule } from '../material/material.module';
+
 @NgModule({
   declarations: [
     ExponentialPipe,
@@ -21,7 +23,8 @@ import { ExponentialPipe } from './pipes/exponential/exponential.pipe';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MaterialModule
   ],
   exports: [
     ExponentialPipe,
