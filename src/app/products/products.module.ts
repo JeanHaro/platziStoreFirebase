@@ -9,6 +9,9 @@ import { ProductsComponent } from './components/products/products.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProductsRoutingModule } from './products-routing.module';
 
+// Material Module - Angular Material
+import { MaterialModule } from '../material/material.module';
+
 @NgModule({
     // Acá estarán los componentes
     declarations: [
@@ -20,7 +23,8 @@ import { ProductsRoutingModule } from './products-routing.module';
     imports: [
         CommonModule,
         SharedModule,
-        ProductsRoutingModule
+        ProductsRoutingModule,
+        MaterialModule
     ]
 })
 export class ProductsModule {
