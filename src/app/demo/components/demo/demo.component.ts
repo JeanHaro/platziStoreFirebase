@@ -16,6 +16,8 @@ export class DemoComponent implements OnInit {
   // Array
   items = ['Jean', 'Julian', 'Perez'];
 
+  objeto = {};
+
   power = 10;
 
   ngOnInit() {

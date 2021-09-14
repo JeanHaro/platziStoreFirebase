@@ -17,7 +17,7 @@ import {
 } from '@angular/core';
 
 // Modelo
-import { Product } from '../product.model';
+import { Product } from '../../../core/models/product.model';
 
 // Clase
 // para que cualquier elemento en angular pueda usar la clase o nuestro componente usamos la palabra export
