@@ -47,6 +47,10 @@ const routes: Routes = [
     loadChildren: () => import('./demo/demo.module').then(m => m.DemoModule)
   },
   {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
+  {
     // Con doble asterisco es que no hubo match y mostrará el componente page-not-found
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
