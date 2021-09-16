@@ -16,9 +16,9 @@ import { Product } from '../../../core/models/product.model';
 })
 export class ProductDetailComponent implements OnInit {
 
-  product: Product | any;
+  product!: Product;
 
-  constructor(private route: ActivatedRoute, private productService: ProductsService) {}
+  constructor (private route: ActivatedRoute, private productService: ProductsService) {}
 
   // Recibir datos
   ngOnInit(): void {
@@ -27,9 +27,18 @@ export class ProductDetailComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       // Todos los parametros que tenga ese componente
       const id = params.id;
+      this.fetchProduct(id);
       // Lo guardamos en una variable constante product
       // Verifica si es el id en los servicios
-      this.product = this.productService.getProduct(id)!;
+      // this.product = this.productService.getProduct(id)!;
+    })
+  }
+
+  fetchProduct (id: string) {
+    this.productService.getProduct(id)
+    // Subscribirnos para recibir la respuesta
+    .subscribe(product => {
+      this.product = product;
     })
   }
 }
