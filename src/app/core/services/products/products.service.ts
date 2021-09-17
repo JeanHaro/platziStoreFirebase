@@ -29,6 +29,17 @@ export class ProductsService {
 
   // Creamos un producto
   createProduct (product: Product) {
+    // En el segundo parámetro se envía el tipo, en este caso es Producto
     return this.http.post(`${environment.url_api}/products`, product);
+  }
+
+  // change: Partial<Product> - solo queremos una parte del producto
+  updateProduct (id: string, changes: Partial<Product>) {
+    // En el segundo parámetro se envía los cambios que se quiera cambiar
+    return this.http.put(`${environment.url_api}/products/${id}`, changes);
+  }
+
+  deleteProduct (id: string) {
+    return this.http.delete(`${environment.url_api}/products/${id}`);
   }
 }
