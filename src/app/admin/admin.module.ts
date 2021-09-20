@@ -9,9 +9,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 // Material Module
 import { MaterialModule } from '../material/material.module';
 import { ProductsListComponent } from './components/products-list/products-list.component';
+import { FormProductComponent } from './components/form-product/form-product.component';
 
 @NgModule({
-  declarations: [ProductFormComponent, NavComponent, ProductsListComponent],
+  declarations: [ProductFormComponent, NavComponent, ProductsListComponent, FormProductComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

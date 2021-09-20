@@ -1,0 +1,19 @@
+<!-- Enlazar el formulario global con formGroup -->
+<form [formGroup]="form">
+    <mat-form-field>
+        <!-- formControlName - para indicarle que contrlador le pertenece al input -->
+        <input formControlName="id" matInput type="text">
+    </mat-form-field>
+    <mat-form-field>
+        <!-- formControlName - para indicarle que contrlador le pertenece al input -->
+        <input formControlName="title" matInput type="text">
+    </mat-form-field>
+    <mat-form-field>
+        <!-- formControlName - para indicarle que contrlador le pertenece al input -->
+        <input formControlName="price" matInput type="number">
+    </mat-form-field>
+    <mat-form-field>
+        <!-- formControlName - para indicarle que contrlador le pertenece al input -->
+        <input formControlName="description" matInput type="number">
+    </mat-form-field>
+</form>
