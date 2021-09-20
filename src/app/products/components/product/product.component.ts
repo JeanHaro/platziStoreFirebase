@@ -19,6 +19,9 @@ import {
 // Modelo
 import { Product } from '../../../core/models/product.model';
 
+// Servicio
+import { CartService } from '../../../core/services/cart.service';
+
 // Clase
 // para que cualquier elemento en angular pueda usar la clase o nuestro componente usamos la palabra export
 // Se coloca acá el Decorador component
@@ -31,7 +34,7 @@ import { Product } from '../../../core/models/product.model';
     // Estilos
     styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit, DoCheck, OnDestroy {
+export class ProductComponent implements OnInit, OnDestroy {
     // Variable tipo Product (Interfaz)
     // Automáticamente el componente que tenemos va a recibir ahora una propiedad desde otro componente
     @Input() product!: Product;
@@ -42,7 +45,7 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
 
     /* Acá es donde se construye nuestro elemento o nuestro productComponent y Angular hace referencia a
     el y lo pone en interfaz */
-    constructor() {
+    constructor(private cartService: CartService) {
         console.log('1. constructor');
     }
 
@@ -62,9 +65,9 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
     // ngOnChanges es nativa de Angular
     // ngDoCheck puedes ser la detección automática de cambios pero a nuestra manera
     // Se lo dejas a Angular o lo hacemos nosotros
-    ngDoCheck() {
+    /* ngDoCheck() {
         console.log('4. DoCheck');
-    }
+    } */
 
     // Este evento solo se ejecuta cuando elemento es quitado o removido de la interfaz 
     /* Cuando queremos hacer desuscripciones a datos, tengamos una suscripción viva de datos remover y 
@@ -77,9 +80,11 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
 
     addCart() {
         console.log('añadir al carrito');
+        // Agregar ese producto al carro
+        this.cartService.addCart(this.product)
         // emit() - Colocar que cosa queremos emitir depende del tipo que colocamos en el productClicked
         // Como es any es cualquier valor, si es number pide numero, etc
         // Emitirá el id del producto
-        this.productClicked.emit(this.product.id);
+        // this.productClicked.emit(this.product.id);
     }
 }
