@@ -10,7 +10,7 @@
             </nav>
             <!-- async - el automáticamente hará la suscripción, cuando el elemento ya no se usa va a 
             desuscribirse -->
-            <a mat-raised-button [matBadge]="total$ | async" matBadgeColor="warn">
+            <a routerLink="/order" mat-raised-button [matBadge]="total$ | async" matBadgeColor="warn">
                 <mat-icon>shopping_cart</mat-icon>
                 Carrito
             </a>
