@@ -31,6 +31,11 @@
                         <!-- formControlName - para indicarle que contrlador le pertenece al input -->
                         <input placeholder="Price" formControlName="price" matInput type="number">
                     </mat-form-field>
+
+                    <div *ngIf="priceField?.errors && priceField?.dirty">
+                        <mat-error *ngIf="priceField?.hasError('price_invalid')">No te debes pasar de 10000</mat-error>
+                        <mat-error *ngIf="priceField?.hasError('required')">El campo es requerido</mat-error>
+                    </div>
                 </div>
             </div>
             
@@ -45,7 +50,8 @@
         </mat-card-content>
 
         <mat-card-actions>
-            <button mat-raised-button type="submit">Guardar</button>
+            <!-- disbled- deshabilitará el botón si el formulario no es valido -->
+            <button [disabled]="form.invalid" mat-raised-button type="submit">Guardar</button>
         </mat-card-actions>
     </mat-card>
 </form>
