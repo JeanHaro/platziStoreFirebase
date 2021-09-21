@@ -3,9 +3,17 @@ import { Component, OnInit } from '@angular/core';
 // FormBuilder - es una extensión de angular, que nos sirve para crear ese grupo rápidamente
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MyValidators } from '../../../utils/validators';
 
+// Pipe
+import { MyValidators } from '../../../utils/validators';
+import { finalize } from 'rxjs/operators';
+
+// Firebase
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+
+// Servicio
 import { ProductsService } from '../../../core/services/products/products.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form-product',
@@ -15,11 +23,13 @@ import { ProductsService } from '../../../core/services/products/products.servic
 export class FormProductComponent implements OnInit {
 
   form!: FormGroup;
+  image$!: Observable<any>;
 
   constructor(
     private formBuilder: FormBuilder, 
     private productService: ProductsService, 
-    private router: Router
+    private router: Router,
+    private storage: AngularFireStorage
   ) { 
     this.buildForm();
   }
@@ -42,6 +52,36 @@ export class FormProductComponent implements OnInit {
     }
 
     console.log(this.form.value);
+  }
+
+  // Cargar archivo
+  uploadFile (event: Event) {
+    // Archivo
+    // Como solo pedimos un archivo pedimos en la posición 1
+    const target = event.target as HTMLInputElement;
+    const file: File = (target.files as FileList)[0];
+    // Para que salga con nombre la imagen
+    const name = file.name;
+    // Referencia del archivo
+    const fileRef = this.storage.ref(name);
+    // Suba un archivo en la carpeta dir, y le mandamos el archivo(file)
+    const task = this.storage.upload(name, file);
+
+    // snapshotChanges - Permitir cuando finalizar
+    task.snapshotChanges()
+    .pipe(
+      // Cuando finaliza
+      // Obtener la URL
+      finalize(() => {
+        this.image$ = fileRef.getDownloadURL();
+        this.image$.subscribe(url => {
+          console.log(url);
+          this.form.get('image')?.setValue(url);
+        })
+      })
+    )
+    // Para que se procese
+    .subscribe();
   }
 
   private buildForm() {
