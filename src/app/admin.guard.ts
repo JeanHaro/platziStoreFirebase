@@ -1,11 +1,20 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+// Servicio
+import { AuthService } from './core/services/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminGuard implements CanActivate {
+
+  constructor (
+    private authService: AuthService
+  ) { }
+
   canActivate(
     route: ActivatedRouteSnapshot,
     // Método por defecto
@@ -13,7 +22,10 @@ export class AdminGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     // false - no permitirle acceder alguna ruta
     // true - permitirle el acceso a alguna ruta
-      return false;
+      return this.authService.hasUser().pipe(
+        // Si el usuario no está saldrá false, y no podrá acceder al admin, y si está podrá entrar
+        map(user => user === null ? false : true)
+      );
   }
   
 }
